@@ -3,7 +3,11 @@ using UnityEngine;
 public class Scr_Teleporter : MonoBehaviour
 {
     public float duration;
-    public float 
+    public float xMax;
+    public float yMax;
+    public float xMin;
+    public float yMin;
+    public Camera gameCamera;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -16,7 +20,7 @@ public class Scr_Teleporter : MonoBehaviour
     void Update()
     {
 
-        Vector2 teleportPos = Random.RandomRange(;
+        Vector2 teleportPos = Random.RandomRange(screen;
 
 
     }
