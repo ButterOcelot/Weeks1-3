@@ -128,7 +128,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 823558}
-  - component: {fileID: 823560}
   - component: {fileID: 823559}
   m_Layer: 0
   m_Name: Tank
@@ -171,22 +170,6 @@ MonoBehaviour:
   xMax: 0
   xMin: 0
   gameCamera: {fileID: 111336382}
---- !u!114 &823560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 823556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2620564189f95164f84ea595a076f775, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.02
-  xMax: 0
-  xMin: 0
-  gameCamera: {fileID: 0}
 --- !u!1 &111336379
 GameObject:
   m_ObjectHideFlags: 0
