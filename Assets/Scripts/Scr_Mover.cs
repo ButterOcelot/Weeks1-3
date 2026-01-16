@@ -42,7 +42,7 @@ public class Scr_Mover : MonoBehaviour
             speed = -speed;
         }
 
-
+        //test
         //I didnt really get this correctly the first time around, trying to set stuff directly to screenwidth instead of using the camera to swap between world and screen units. Once the class walkthrough was done though i got it working just fine.
     }
 }
