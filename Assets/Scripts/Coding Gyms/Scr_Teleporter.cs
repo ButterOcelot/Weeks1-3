@@ -4,7 +4,7 @@ public class Scr_Teleporter : MonoBehaviour
 {
     public float duration;
     public float teleportDelay;
-    float savedTeleDelay
+    float savedTeleDelay;
     public Camera gameCamera;
     
 
