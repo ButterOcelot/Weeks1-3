@@ -1,30 +1,93 @@
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class Controller : MonoBehaviour
 {
+    public float moveSpeed;
+    public float rotateSpeed;
+
+    public SpriteRenderer spriteRenderer;
+    public Color startingColour;
+
+    public List<SpriteRenderer> controllableRenderers;
+    public List<Transform> controlledTransforms;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        bool isInsideSprite = spriteRenderer.bounds.Contains(transform.position);
 
+
+        controlledTransforms.Add(transform);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Vector3 currentMousePosition = Mouse.current.position.ReadValue();
+        Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(currentMousePosition);
+        worldMousePosition.z = 0;
 
-        bool wIsPressed = Keyboard.current.wKey.isPressed;
-        if (wIsPressed)
+        bool isLeftPressed = Mouse.current.leftButton.isPressed;
+        if (isLeftPressed)
         {
-
+            //Find any renderers that are currently hovered over
+            for (int i = 0; i < controllableRenderers.Count; i++)
+            {
+                SpriteRenderer currentSpriteRenderer = controllableRenderers[i];
+                bool isHovered = currentSpriteRenderer.bounds.Contains(worldMousePosition);
+                if (isHovered)
+                {
+                    controlledTransforms.Add(currentSpriteRenderer.transform);
+                }
+            }
         }
 
-        bool wIsPressed = Keyboard.current.wKey.isPressed;
-        if (wIsPressed)
-        {
 
+        //bool leftIsHeld = Mouse.current.leftButton.isPressed;
+        //if(leftIsHeld)
+        //{
+        //    Debug.Log("Left mouse is held");
+        //}
+
+        //bool leftIsPressed = Mouse.current.leftButton.wasPressedThisFrame;
+        //if(leftIsPressed)
+        //{
+        //    Debug.Log("Left mouse is pressed.");
+        //}
+
+        //bool leftIsReleased = Mouse.current.leftButton.wasReleasedThisFrame;
+        //if (leftIsReleased)
+        //{
+        //    Debug.Log("Left mouse is released.");
+        //}
+
+        //bool spaceIsPressed = Keyboard.current.spaceKey.isPressed;
+
+        bool leftArrowHeld = Keyboard.current.leftArrowKey.isPressed;
+        bool rightArrowHeld = Keyboard.current.rightArrowKey.isPressed;
+        bool upArrowHeld = Keyboard.current.upArrowKey.isPressed;
+        bool downArrowHeld = Keyboard.current.downArrowKey.isPressed;
+        if (leftArrowHeld)
+        {
+            transform.eulerAngles += transform.forward * rotateSpeed * Time.deltaTime;
         }
+        if (rightArrowHeld)
+        {
+            transform.eulerAngles -= transform.forward * rotateSpeed * Time.deltaTime;
+        }
+        if (upArrowHeld)
+        {
+            transform.position += transform.up * moveSpeed * Time.deltaTime;
+        }
+        if (downArrowHeld)
+        {
+            transform.position -= transform.up * moveSpeed * Time.deltaTime;
+        }
+
 
     }
 }

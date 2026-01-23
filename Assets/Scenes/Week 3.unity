@@ -149,6 +149,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1be4e5bb128a8e947baab59e67173af4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 5
+  rotateSpeed: 5
+  spriteRenderer: {fileID: 1338471257}
+  startingColour: {r: 1, g: 0, b: 0, a: 1}
+  controllableRenderers: []
+  controlledTransforms: []
 --- !u!212 &1338471257
 SpriteRenderer:
   m_ObjectHideFlags: 0
