@@ -16,7 +16,7 @@ public class Scr_Clock : MonoBehaviour
     void Update()
     {
         Vector3 currentRotation = transform.eulerAngles;
-        currentRotation.z += rotationSpeed * Time.deltaTime;
+        currentRotation.z -= rotationSpeed * Time.deltaTime;
         transform.eulerAngles = currentRotation;
     }
 }
