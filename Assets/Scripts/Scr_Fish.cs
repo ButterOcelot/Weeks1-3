@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class Scr_Fish : MonoBehaviour
 {
-
+    //These control a timer.
     public float timerMax;
     public float timer;
+    
+    //These reset the timer and alow the fish to flip back and forth.
     bool flipFlop;
     bool flipHorizontally;
 
@@ -20,8 +22,10 @@ public class Scr_Fish : MonoBehaviour
     {
         Vector3 fishPos = transform.position;
         Vector3 fishRot = transform.eulerAngles;
+        //Creates vectors to store position and rotation. 
 
         timer += 1 * Time.deltaTime;
+        //Timer that counts up evey second.
 
         if (timer > timerMax)
         {
@@ -35,6 +39,7 @@ public class Scr_Fish : MonoBehaviour
                 flipFlop = true;
             }
         }
+        //When the timer hits it's max, toggle flip-flop on or off.
 
         if (flipFlop == true)
         {
@@ -44,7 +49,7 @@ public class Scr_Fish : MonoBehaviour
                 fishRot.y += 180;
                 flipHorizontally = false;
             }
-
+            //If flip-flop is true, move the fish to the right and flip it to face the right.
         }
         else if(flipFlop == false)
         {
@@ -54,10 +59,12 @@ public class Scr_Fish : MonoBehaviour
                 fishRot.y += 180;
                 flipHorizontally = true;
             }
+            //If flip-flop is false, move the fish to the left and flip it to face the left.
         }
 
         transform.eulerAngles = fishRot;
         transform.position = fishPos;
+        //Set the fish's position and rotation.
 
     }
 }
