@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
 public class Scr_ : MonoBehaviour
@@ -33,3 +34,4 @@ public class Scr_ : MonoBehaviour
         transform.position = tankPosition;
 
     }
+}
